@@ -56,13 +56,16 @@ We built StyleWise because we saw a gap in how fashion apps serve real people. M
 We trained our AI to understand style goals and generate outfit suggestions that feel authentic. It’s not just about clothes—it’s about confidence, identity, and intelligent design.
 
 👥 Meet the Creators
-Jacob Sihul Software Engineer | Full-stack Developer | UEAB Student 📧 jacobsihul911@gmail.com 📱 0794787682 🌐 github.com/Geeksjayjay388
 
-Becky Cherop Software Engineer | UI/UX Designer | UEAB Student 📧 cheropbecky348@gmail.com 📱 0799049979
+Jacob Sihul 
+Software Engineer | Full-stack Developer | UEAB Student 📧 jacobsihul911@gmail.com 📱 0794787682 🌐 github.com/Geeksjayjay388
+
+Becky Cherop 
+Software Engineer | Front-end Developer | UEAB Student 📧 cheropbecky348@gmail.com 📱 0799049979
 
 Together, we collaborated on every aspect of StyleWise—from backend logic and AI integration to frontend design and user experience. Our shared vision: to make fashion more intelligent, inclusive, and empowering.
 
-🌱 What’s Next
+🌱 What’s Next..
 🧬 Skin tone detection via camera input
 
 🛍️ Direct links to purchase recommended outfits
