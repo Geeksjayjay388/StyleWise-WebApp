@@ -1,0 +1,17 @@
+
+@import "tailwindcss";
+
+h2 {
+  @apply font-bold text-2xl text-white hover:text-amber-800;
+}
+
+li.footer {
+  @apply text-sm text-white hover:text-amber-700
+}
+p.footer {
+  @apply text-sm text-white hover:text-amber-700
+}
+
+.nav-btn {
+  @apply px-4 py-1.5 rounded-lg font-semibold text-amber-700 hover:text-amber-900 bg-white hover:bg-gray-300
+}
