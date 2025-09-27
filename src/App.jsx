@@ -1,76 +1,59 @@
-import { outfitCombinations } from './data/outfitData';
-import HomePage from './pages/HomePage.jsx';
-import Quiz from './pages/Quiz.jsx';
-import LoadingScreen from './pages/LoadingScreen.jsx';
-import Results from './pages/Results.jsx';
-import Wardrobe from './pages/Wardrobe.jsx';
-import { useState } from 'react';
-
+import React, { useState } from 'react';
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import Quiz from './pages/Quiz';
+import Results from './pages/Results';
+import Wardrobe from './pages/Wardrobe';
+import AboutUs from './components/AboutUs';
+import Contact from './components/Contact';
+import LoadingScreen from './pages/LoadingScreen';
+import selectedOutfits, { generatePersonalizedOutfits } from './data/selectedOutfits.js';
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState('home');
+  const [currentView, setCurrentView] = useState('home');
   const [quizData, setQuizData] = useState(null);
-  const [generatedOutfits, setGeneratedOutfits] = useState([]);
-
-  const handleGetStarted = () => {
-    setCurrentScreen('quiz');
-  };
+  const [savedOutfits, setSavedOutfits] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleQuizComplete = (data) => {
     setQuizData(data);
-    setCurrentScreen('loading');
+    setIsLoading(true);
   };
 
   const handleLoadingComplete = () => {
-    // Generate outfits based on quiz answers (simplified logic)
-    setGeneratedOutfits(outfitCombinations);
-    setCurrentScreen('results');
+    setIsLoading(false);
+    setCurrentView('results');
   };
 
   const handleContinueToWardrobe = () => {
-    setCurrentScreen('wardrobe');
+    if (quizData) {
+      const personalizedOutfits = generatePersonalizedOutfits(quizData.answers, quizData.skinTone);
+      setSavedOutfits(personalizedOutfits);
+    }
+    setCurrentView('wardrobe');
   };
 
-  const handleBackToHome = () => {
-    setCurrentScreen('home');
-    setQuizData(null);
-    setGeneratedOutfits([]);
+  const handleGetStarted = () => {
+    setCurrentView('quiz');
+  };
+
+  const handleNavigate = (view) => {
+    setCurrentView(view);
   };
 
   return (
-    <div className="relative">
-      {currentScreen !== 'home' && (
-        <button
-          onClick={handleBackToHome}
-          className="fixed top-6 left-6 z-50 bg-white text-amber-600 px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all font-semibold"
-        >
-          ← Start Over
-        </button>
-      )}
+    <div className="font-sans">
+      <Navbar currentView={currentView} onNavigate={handleNavigate} />
       
-      {currentScreen === 'home' && (
-        <HomePage onGetStarted={handleGetStarted} />
+      {currentView === 'home' && <HomePage onGetStarted={handleGetStarted} />}
+      {currentView === 'quiz' && <Quiz onComplete={handleQuizComplete} />}
+      {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
+      {currentView === 'results' && quizData && (
+        <Results quizData={quizData} onContinueToWardrobe={handleContinueToWardrobe} />
       )}
-      
-      {currentScreen === 'quiz' && (
-        <Quiz onComplete={handleQuizComplete} />
-      )}
-      
-      {currentScreen === 'loading' && (
-        <LoadingScreen onComplete={handleLoadingComplete} />
-      )}
-      
-      {currentScreen === 'results' && (
-        <Results
-          quizData={quizData}
-          generatedOutfits={generatedOutfits}
-          onContinueToWardrobe={handleContinueToWardrobe}
-        />
-      )}
-      
-      {currentScreen === 'wardrobe' && (
-        <Wardrobe savedOutfits={generatedOutfits} />
-      )}
+      {currentView === 'wardrobe' && <Wardrobe savedOutfits={savedOutfits} />}
+      {currentView === 'about' && <AboutUs />}
+      {currentView === 'contact' && <Contact />}
     </div>
   );
 }

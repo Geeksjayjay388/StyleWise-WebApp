@@ -78,17 +78,17 @@ function Quiz({ onComplete }) {
 
   if (showSkinTone) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center p-6">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black flex items-center justify-center p-6 pt-24">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center"
+          className="bg-gray-800/50 backdrop-blur-lg rounded-3xl shadow-2xl p-8 max-w-md w-full text-center border border-cyan-500/20"
         >
-          <h2 className="text-3xl font-bold text-amber-800 mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6">
             Choose Your Skin Tone
           </h2>
-          <p className="text-amber-600 mb-8">
-            This helps us recommend colors that complement you best
+          <p className="text-gray-300 mb-8">
+            This helps our AI recommend colors that complement you perfectly
           </p>
           
           <div className="space-y-3">
@@ -98,8 +98,12 @@ function Quiz({ onComplete }) {
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: '0 0 20px rgba(6, 182, 212, 0.3)'
+                }}
                 onClick={() => handleSkinToneSelect(tone)}
-                className="w-full py-4 px-6 bg-gradient-to-r from-amber-50 to-amber-100 hover:from-amber-100 hover:to-amber-200 border border-amber-200 rounded-lg font-semibold text-amber-800 transition-all hover:shadow-md"
+                className="w-full py-4 px-6 bg-gradient-to-r from-gray-700/50 to-gray-600/50 hover:from-cyan-500/20 hover:to-blue-500/20 border border-gray-600 hover:border-cyan-400/50 rounded-xl font-semibold text-white transition-all backdrop-blur-sm"
               >
                 {tone}
               </motion.button>
@@ -111,24 +115,26 @@ function Quiz({ onComplete }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black flex items-center justify-center p-6 pt-24">
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full"
+        className="bg-gray-800/50 backdrop-blur-lg rounded-3xl shadow-2xl p-8 max-w-lg w-full border border-cyan-500/20"
       >
-        <div className="mb-6">
-          <div className="flex justify-between text-amber-600 text-sm mb-2">
+        <div className="mb-8">
+          <div className="flex justify-between text-gray-300 text-sm mb-4">
             <span>Question {currentQuestion + 1} of {questions.length}</span>
             <span>{Math.round(((currentQuestion + 1) / questions.length) * 100)}%</span>
           </div>
-          <div className="w-full bg-amber-200 h-2 rounded-full">
+          <div className="w-full bg-gray-700 h-3 rounded-full overflow-hidden">
             <motion.div
-              className="bg-gradient-to-r from-amber-500 to-amber-600 h-2 rounded-full"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 h-3 rounded-full relative"
               initial={{ width: 0 }}
               animate={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-              transition={{ duration: 0.3 }}
-            />
+              transition={{ duration: 0.5 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 animate-pulse" />
+            </motion.div>
           </div>
         </div>
 
@@ -140,7 +146,7 @@ function Quiz({ onComplete }) {
             exit={{ x: -100, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="text-2xl font-bold text-amber-800 mb-8">
+            <h3 className="text-3xl font-bold text-white mb-10">
               {questions[currentQuestion].question}
             </h3>
             
@@ -151,8 +157,12 @@ function Quiz({ onComplete }) {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
+                  whileHover={{ 
+                    scale: 1.02,
+                    boxShadow: '0 0 25px rgba(6, 182, 212, 0.3)'
+                  }}
                   onClick={() => handleAnswer(option)}
-                  className="w-full py-4 px-6 text-left bg-gradient-to-r from-amber-50 to-amber-100 hover:from-amber-100 hover:to-amber-200 border border-amber-200 rounded-lg font-semibold text-amber-800 transition-all hover:shadow-md hover:scale-102"
+                  className="w-full py-5 px-6 text-left bg-gradient-to-r from-gray-700/50 to-gray-600/50 hover:from-cyan-500/20 hover:to-blue-500/20 border border-gray-600 hover:border-cyan-400/50 rounded-xl font-semibold text-white transition-all backdrop-blur-sm"
                 >
                   {option}
                 </motion.button>
