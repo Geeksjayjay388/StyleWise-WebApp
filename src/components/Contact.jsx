@@ -14,7 +14,7 @@ function Contact() {
             Contact <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Us</span>
           </h1>
           <p className="text-xl text-gray-300">
-            Get in touch with the StyleAI team
+            Get in touch with the Stylewise AI team
           </p>
         </motion.div>
 
@@ -46,7 +46,7 @@ function Contact() {
               <div className="space-y-2 text-gray-300">
                 <div>Instagram: @BeckyCherop || @Jayjaygeeks</div>
                 
-                <div>TikTok: @styleai</div>
+                <div>TikTok: @stylewiseai</div>
               </div>
             </div> 
           </div>

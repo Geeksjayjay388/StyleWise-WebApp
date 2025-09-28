@@ -11,7 +11,7 @@ function AboutUs() {
           className="text-center mb-12"
         >
           <h1 className="text-6xl font-bold text-white mb-6">
-            About <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">StyleAI</span>
+            About <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Stylewise AI</span>
           </h1>
           <p className="text-xl text-gray-300">
             Revolutionizing fashion with artificial intelligence
@@ -27,7 +27,7 @@ function AboutUs() {
           >
             <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
             <p className="text-gray-300 text-lg leading-relaxed">
-              At StyleAI, we believe everyone deserves to look and feel their best. Our cutting-edge AI technology 
+              At Stylewise AI, we believe everyone deserves to look and feel their best. Our cutting-edge AI technology 
               analyzes your personal style preferences, skin tone, and lifestyle to create perfectly curated outfit 
               combinations that reflect your unique personality.
             </p>
@@ -56,7 +56,7 @@ function AboutUs() {
             <h2 className="text-3xl font-bold text-white mb-4">The Future of Fashion</h2>
             <p className="text-gray-300 text-lg leading-relaxed">
               We're not just creating outfits – we're building the future of personalized fashion. Join thousands 
-              of users who have already discovered their perfect style with StyleAI.
+              of users who have already discovered their perfect style with Stylewise AI.
             </p>
           </motion.div>
         </div>

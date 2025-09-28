@@ -54,7 +54,7 @@ function HomePage({ onGetStarted }) {
 
           {/* Title */}
           <h1 className="text-6xl sm:text-8xl font-extrabold mb-6 leading-tight">
-            <span className="text-white">Style</span>
+            <span className="text-white">Stylewise</span>
             <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
               AI
             </span>

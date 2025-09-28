@@ -26,7 +26,7 @@ function Navbar({ currentView, onNavigate }) {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
             >
-              StyleAI
+              Stylewise AI
             </motion.div>
           </div>
 

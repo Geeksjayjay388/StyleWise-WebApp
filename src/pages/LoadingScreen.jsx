@@ -110,7 +110,7 @@ function LoadingScreen({ onComplete }) {
           className="text-4xl font-bold text-white mb-2"
         >
           <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            StyleAI
+            Stylewise AI
           </span>{' '}
           Working...
         </motion.h2>
